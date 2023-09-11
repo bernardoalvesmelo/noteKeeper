@@ -22,4 +22,19 @@ export class ListarNotasComponent {
       tema: 'warning',
     },
   ];
+  
+  titulo: string = "";
+  conteudo: string = "";
+  
+  adicionarNota() {
+    const tamanho = this.notas.length + 1;
+    const nota: Nota = {
+      id: tamanho,
+      titulo: this.titulo,
+      conteudo: this.conteudo,
+      tema: "dark"
+    }
+
+    this.notas.push(nota);
+  }
 }
