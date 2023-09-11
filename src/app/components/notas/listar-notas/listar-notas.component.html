@@ -1,0 +1,15 @@
+<section class="row gap-3">
+    <h1>Minhas Notas</h1>
+  
+    <div>
+      <button class="btn btn-lg btn-outline-primary mb-4 rounded-4">
+        Criar Nota
+      </button>
+    </div>
+  
+    <div class="row g-3">
+      <div *ngFor="let nota of notas" class="col-sm col-md-6 col-lg-3">
+        <app-card-nota [nota]="nota"></app-card-nota>
+      </div>
+    </div>
+  </section>
