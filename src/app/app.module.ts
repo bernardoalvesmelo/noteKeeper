@@ -8,6 +8,7 @@ import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListarNotasComponent } from './components/notas/listar-notas/listar-notas.component';
 import { CardNotasComponent } from './components/notas/card-notas/card-notas.component';
+import { CriarNotaComponent } from './components/notas/criar-nota/criar-nota.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CardNotasComponent } from './components/notas/card-notas/card-notas.com
     NavbarComponent,
     ListarNotasComponent,
     CardNotasComponent,
+    CriarNotaComponent,
   ],
   imports: [
     BrowserModule,

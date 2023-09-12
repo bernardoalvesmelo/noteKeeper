@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Nota } from '../nota';
+import { NotaService } from '../nota.service';
 
 @Component({
   selector: 'app-listar-notas',
@@ -7,34 +8,14 @@ import { Nota } from '../nota';
   styleUrls: ['./listar-notas.component.css']
 })
 
-export class ListarNotasComponent {
+export class ListarNotasComponent implements OnInit{
   notas: Nota[] = [
-    {
-      id: 1,
-      titulo: 'Nota criada 1',
-      conteudo: 'Nota de teste',
-      tema: 'dark',
-    },
-    {
-      id: 2,
-      titulo: 'Nota criada 2',
-      conteudo: 'Nota de teste',
-      tema: 'warning',
-    },
-  ];
-  
-  titulo: string = "";
-  conteudo: string = "";
-  
-  adicionarNota() {
-    const tamanho = this.notas.length + 1;
-    const nota: Nota = {
-      id: tamanho,
-      titulo: this.titulo,
-      conteudo: this.conteudo,
-      tema: "dark"
-    }
 
-    this.notas.push(nota);
+  ];
+
+  constructor(private notaService: NotaService) {}
+
+  ngOnInit(): void {
+    this.notas = this.notaService.selecionarTodos();
   }
 }
