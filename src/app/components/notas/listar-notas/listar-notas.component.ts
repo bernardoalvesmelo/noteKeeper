@@ -16,6 +16,8 @@ export class ListarNotasComponent implements OnInit{
   constructor(private notaService: NotaService) {}
 
   ngOnInit(): void {
-    this.notas = this.notaService.selecionarTodos();
+    this.notaService.selecionarTodos().subscribe((notasLista) => {
+    this.notas = notasLista;
+    })
   }
 }

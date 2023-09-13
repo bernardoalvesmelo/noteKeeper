@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Nota } from "../nota";
 import { NotaService } from "../nota.service";
 import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -16,7 +17,8 @@ export class CriarNotaComponent {
 
     constructor(
         private notaService: NotaService,
-        private router: Router
+        private router: Router,
+        private toastService: ToastrService
         ) 
         {
             this.nota = {
@@ -28,8 +30,11 @@ export class CriarNotaComponent {
         }
 
     criarNota() {
-        this.notaService.criarNota(this.nota);
-    
-        this.router.navigate(['/notas', 'listar']);
+        this.notaService.criarNota(this.nota).subscribe((nota) => {
+            this.toastService
+            .success(`Nota ${nota.titulo} criada com sucesso`, 'Success');
+            
+            this.router.navigate(['/notas', 'listar']);
+        });
     }
 }

@@ -1,0 +1,34 @@
+{
+  "notas": [
+    {
+      "id": 1,
+      "titulo": "Lavar o cachorro 🦮",
+      "conteudo": "Pegar o shampoo > pegar a toalha",
+      "tema": "warning"
+    },
+    {
+      "id": 2,
+      "titulo": "Planejar as Aulas de Angular",
+      "conteudo": "Pesquisar material",
+      "tema": "info"
+    },
+    {
+      "id": 3,
+      "titulo": "Atualizar Aplicações Angular",
+      "conteudo": "Preparar projetos para as aulas",
+      "tema": "danger"
+    },
+    {
+      "titulo": "Teste insomnia ",
+      "conteudo": "Teste",
+      "tema": "warning",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "titulo": "Padrão",
+      "conteudo": "Conteúdo Padrão",
+      "tema": "info"
+    }
+  ]
+}
