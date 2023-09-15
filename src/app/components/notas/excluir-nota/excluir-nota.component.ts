@@ -32,6 +32,4 @@ export class ExcluirNotaComponent implements OnInit{
       this.router.navigate(['/notas', 'listar']);
       });
   }
-
- 
 }

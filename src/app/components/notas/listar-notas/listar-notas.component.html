@@ -7,7 +7,18 @@
         Criar Nota
       </button>
     </div>
-  
+    <div class="d-flex flex-wrap gap-2">
+      <div class="">
+        <button (click)="mostrarTodasNotas()" class="btn btn-md btn-outline-dark mb-2 rounded-4">
+            Todas
+        </button>
+      </div>
+      <div *ngFor="let categoria of categorias" class="">
+        <button (click)="filtrarPorCategorias(categoria)" class="btn btn-md btn-outline-dark mb-2 rounded-4">
+            {{categoria.titulo}}
+        </button>
+      </div>
+    </div>
     <div class="row g-3">
       <div *ngFor="let nota of notas" class="col-sm col-md-6 col-lg-3">
         <app-card-nota [nota]="nota"></app-card-nota>

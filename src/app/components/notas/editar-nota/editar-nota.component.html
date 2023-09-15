@@ -17,6 +17,27 @@
             name="titulo"
           />
         </div>
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+              Categorias
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownCategorias">
+              <button 
+                *ngFor="let categoria of categorias" 
+                (click)="nota.categoriaId = categoria.id;"
+                ngbDropdownItem 
+                ngDefaultControl 
+                id="categoria.titulo"
+                type="button"
+                class="form-check-inline"
+                name="categoriaId" 
+                value="categoria.id">
+                {{categoria.titulo}}
+              </button>
+            </div>
+          </div>
+        </div>
         <div class="mb-3">
           <label for="conteudo" class="form-label">Conteúdo</label>
           <textarea

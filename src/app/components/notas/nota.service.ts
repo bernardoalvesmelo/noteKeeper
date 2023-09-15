@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Nota } from "./nota";
 import { HttpClient } from "@angular/common/http";
-import { JsonPipe } from "@angular/common";
 
 @Injectable({
     providedIn: 'root',

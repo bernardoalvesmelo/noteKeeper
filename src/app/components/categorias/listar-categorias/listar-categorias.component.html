@@ -1,0 +1,47 @@
+<section class="d-grid container-fluid">
+    <h1 class="">Minhas Categorias</h1>
+  
+    <div>
+      <button routerLink="/categorias/criar" class="btn btn-lg btn-outline-primary mb-4 rounded-4">
+      <i class="bi bi-plus-circle"></i>
+        Criar Categoria
+      </button>
+    </div>
+  
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Título</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let categoria of categorias; index as i">
+                <th scope="row">{{ categoria.id }}</th>
+                <td>{{ categoria.titulo}}</td>
+                <td class="d-flex gap-1">
+                    <button
+                    class="btn btn-outline-dark"
+                    routerLink="/categorias/editar/{{categoria.id }}"
+                    aria-label="Editar"
+                    ngbTooltip="Editar"
+                    placement="bottom"
+                  >
+                    <i class="bi bi-pen"></i>
+                  </button>
+                  <button
+                    class="btn btn-outline-dark"
+                    routerLink="/categorias/excluir/{{ categoria.id }}"
+                    aria-label="Excluir"
+                    ngbTooltip="Excluir"
+                    placement="bottom"
+                  >
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+  </section>
