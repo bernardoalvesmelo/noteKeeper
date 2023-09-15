@@ -35,10 +35,11 @@ export class EditarNotaComponent implements OnInit{
   ngOnInit(): void {
     this.notaService.selecionarPorId(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe((n) => {
       this.nota = n;
-     });
+    });
+    
      this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
       this.categorias = categoriasLista;
-  })
+    })
   }
 
   editarNota() {

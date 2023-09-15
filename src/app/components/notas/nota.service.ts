@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Nota } from "./nota";
 import { HttpClient } from "@angular/common/http";
+import { Categoria } from "../categorias/categoria";
 
 @Injectable({
     providedIn: 'root',
@@ -18,6 +19,11 @@ export class NotaService  {
 
     public selecionarTodos() {
       return this.http.get<Nota[]>(this.API_URL);
+    }
+
+    public selecionarTodosComCategoria() {
+      const URL = 'http://localhost:3000/notas?_expand=categoria'
+      return this.http.get<{categorias: Categoria[], notas: Nota[]}>(URL);
     }
 
     editarNota(nota: Nota) {

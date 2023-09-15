@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Nota } from '../nota';
 import { NotaService } from '../nota.service';
-import { CategoriaService } from '../../categorias/categoria.service';
 import { Categoria } from '../../categorias/categoria';
 
 @Component({
@@ -16,18 +15,12 @@ export class ListarNotasComponent implements OnInit{
   categorias: Categoria[] = [];
 
     constructor(
-        private notaService: NotaService,
-        private categoriaService: CategoriaService,) {
-
-  }
+        private notaService: NotaService) {}
 
   ngOnInit(): void {
-    this.notaService.selecionarTodos().subscribe((notasLista) => {
-      this.notas = notasLista;
-    });
-
-    this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
-      this.categorias = categoriasLista;
+    this.notaService.selecionarTodosComCategoria().subscribe((obj) => {
+      this.notas = obj.notas;
+      this.categorias = obj.categorias;
     });
   }
 
