@@ -1,11 +1,10 @@
 import { Component } from "@angular/core";
-import { Nota } from "../nota";
-import { NotaService } from "../nota.service";
+import { Nota } from "../../../models/nota";
+import { NotaService } from "../../../services/nota.service";
 import { Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import { CategoriaService } from "../../categorias/categoria.service";
-import { Categoria } from "../../categorias/categoria";
-
+import { CategoriaService } from "../../../services/categoria.service";
+import { Categoria } from "src/app/models/categoria";
 
 
 @Component({
@@ -39,6 +38,9 @@ export class CriarNotaComponent {
         this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
             this.categorias = categoriasLista;
         });
+
+        this.nota.categoria = this.categorias[0] ?? null;
+        this.nota.categoriaId = this.nota.categoria.id;
     }
 
     criarNota() {
@@ -48,5 +50,10 @@ export class CriarNotaComponent {
             
             this.router.navigate(['/notas', 'listar']);
         });
+    }
+
+    definirCategoria(categoria: Categoria) {
+        this.nota.categoria = categoria;
+        this.nota.categoriaId = categoria.id;
     }
 }

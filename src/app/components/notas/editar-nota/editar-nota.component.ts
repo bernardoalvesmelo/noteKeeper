@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NotaService } from '../nota.service';
+import { NotaService } from '../../../services/nota.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Nota } from '../nota';
+import { Nota } from '../../../models/nota';
 import { ToastrService } from 'ngx-toastr';
-import { Categoria } from '../../categorias/categoria';
-import { CategoriaService } from '../../categorias/categoria.service';
+import { CategoriaService } from '../../../services/categoria.service';
+import { Categoria } from 'src/app/models/categoria';
 
 @Component({
   selector: 'app-editar-nota',
@@ -36,7 +36,7 @@ export class EditarNotaComponent implements OnInit{
     this.notaService.selecionarPorId(parseInt(this.route.snapshot.paramMap.get('id')!)).subscribe((n) => {
       this.nota = n;
     });
-    
+
      this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
       this.categorias = categoriasLista;
     })
@@ -47,5 +47,10 @@ export class EditarNotaComponent implements OnInit{
     this.toastService.success(`Nota ${nota.titulo} editada com sucesso`, 'Success');
     this.router.navigate(['/notas', 'listar']);
     });
+  }
+
+  definirCategoria(categoria: Categoria) {
+    this.nota.categoria = categoria;
+    this.nota.categoriaId = categoria.id;
   }
 }

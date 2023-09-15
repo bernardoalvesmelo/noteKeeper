@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Categoria } from "./categoria";
-import { Nota } from "../notas/nota";
+import { Categoria } from "../models/categoria";
+
 
 @Injectable({
     providedIn: 'root',
@@ -20,20 +20,15 @@ export class CategoriaService  {
       return this.http.get<Categoria[]>(this.API_URL);
     }
 
-    public selecionarTodosComNotas() {
-      const URL = 't:3000/categorias?_embed=notas';
-      return this.http.get<Categoria[]>(URL);
-    }
-
-    editarCategoria(categoria: Categoria) {
+    public editarCategoria(categoria: Categoria) {
       return this.http.put<Categoria>(this.API_URL + `/${categoria.id}`, categoria);
     }
 
-    excluirCategoria(categoria: Categoria) {
+    public excluirCategoria(categoria: Categoria) {
       return this.http.delete<Categoria>(this.API_URL + `/${categoria.id}`);
     }
 
-    selecionarPorId(id: number) {
+    public selecionarPorId(id: number) {
       return this.http.get<Categoria>(this.API_URL + `/${id}`);
     }
 }

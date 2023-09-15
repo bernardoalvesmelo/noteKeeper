@@ -19,7 +19,7 @@
             <div class="ngbDropdown" ngbDropdownMenu aria-labelledby="dropdownCategorias">
               <button 
                 *ngFor="let categoria of categorias" 
-                (click)="nota.categoriaId = categoria.id;"
+                (click)="definirCategoria(categoria)"
                 ngbDropdownItem 
                 ngDefaultControl 
                 id="categoria.titulo"

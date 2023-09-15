@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Categoria } from '../categoria';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoriaService } from '../categoria.service';
+import { CategoriaService } from '../../../services/categoria.service';
+import { Categoria } from 'src/app/models/categoria';
 
 @Component({
   selector: 'app-editar-categoria',

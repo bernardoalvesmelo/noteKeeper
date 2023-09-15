@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Nota } from '../nota';
-import { NotaService } from '../nota.service';
-import { CategoriaService } from '../../categorias/categoria.service';
-import { Categoria } from '../../categorias/categoria';
+import { Nota } from '../../../models/nota';
+import { NotaService } from '../../../services/nota.service';
+import { CategoriaService } from '../../../services/categoria.service';
+import { Categoria } from 'src/app/models/categoria';
+
 
 @Component({
   selector: 'app-listar-notas',
@@ -31,13 +32,26 @@ export class ListarNotasComponent implements OnInit{
     });
   }
 
-  filtrarPorCategorias(categoria: Categoria): void {
-    this.notaService.selecionarTodos().subscribe((notasLista) => {
-      this.notas = notasLista.filter(c => c.id == categoria.id);
-    });
+
+  filtrarNotasPorCategoria(categoria: Categoria | null) {
+    if(!categoria) {
+      this.selecionarTodasNotas();
+    }
+
+    else {
+      this.selecionarNotasPorCategoria(categoria);
+    }
   }
 
-  mostrarTodasNotas() {
+  selecionarNotasPorCategoria(categoria: Categoria) {
+    this.notaService
+      .selecionarTodasPorCategoria(categoria)
+      .subscribe((notas: Nota[]) => {
+        this.notas = notas;
+      });
+  }
+
+  selecionarTodasNotas() {
     this.notaService.selecionarTodos().subscribe((notasLista) => {
       this.notas = notasLista;
     });
