@@ -36,15 +36,6 @@ export class ExcluirCategoriaComponent {
   }
 
   excluirCategoria() {
-    const nota = this.notas.find(n => n.categoriaId == this.categoria.id);
-    if(nota) {
-      this.toastService.success(
-        `Categoria ${this.categoria.titulo} não pode ser excluída enquanto relacionada com Nota ${nota.titulo}`, 
-        'Success'
-        );
-      this.router.navigate(['/categorias', 'listar']);
-    }
-
     this.categoriaService.excluirCategoria(this.categoria).subscribe((categoria) => {
       this.toastService.success(`Categoria ${categoria.titulo} excluída com sucesso`, 'Success');
       this.router.navigate(['/categorias', 'listar']);

@@ -22,18 +22,17 @@ export class CriarNotaComponent {
         private categoriaService: CategoriaService,
         private router: Router,
         private toastService: ToastrService
-        ) 
-        {
-            this.nota = {
-                id: 0,
-                titulo: 'Padrão',
-                conteudo: 'Conteúdo Padrão',
-                tema: 'dark',
-                categoriaId: 1,
-            }
+    ) {
+        this.nota = {
+            id: 0,
+            titulo: 'Padrão',
+            conteudo: 'Conteúdo Padrão',
+            tema: 'dark',
+            categoriaId: 1,
         }
+    }
 
-      
+
     ngOnInit(): void {
         this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
             this.categorias = categoriasLista;
@@ -46,8 +45,8 @@ export class CriarNotaComponent {
     criarNota() {
         this.notaService.criarNota(this.nota).subscribe((nota) => {
             this.toastService
-            .success(`Nota ${nota.titulo} criada com sucesso`, 'Success');
-            
+                .success(`Nota ${nota.titulo} criada com sucesso`, 'Success');
+
             this.router.navigate(['/notas', 'listar']);
         });
     }
@@ -55,5 +54,16 @@ export class CriarNotaComponent {
     definirCategoria(categoria: Categoria) {
         this.nota.categoria = categoria;
         this.nota.categoriaId = categoria.id;
+    }
+
+
+    verificarCategorias() {
+        if (this.categorias.length == 0) {
+            this.toastService.warning(
+                `Cadastre uma categoria primeiro para poder criar uma nota`,
+                'Warning'
+            );
+            this.router.navigate(['/categorias', 'listar']);
+        }
     }
 }
