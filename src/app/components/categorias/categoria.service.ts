@@ -22,7 +22,7 @@ export class CategoriaService  {
 
     public selecionarTodosComNotas() {
       const URL = 't:3000/categorias?_embed=notas';
-      return this.http.get<{notas: Nota[],categorias: Categoria[]}>(URL);
+      return this.http.get<Categoria[]>(URL);
     }
 
     editarCategoria(categoria: Categoria) {

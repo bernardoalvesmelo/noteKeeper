@@ -23,7 +23,7 @@ export class NotaService  {
 
     public selecionarTodosComCategoria() {
       const URL = 'http://localhost:3000/notas?_expand=categoria'
-      return this.http.get<{categorias: Categoria[], notas: Nota[]}>(URL);
+      return this.http.get<Nota[]>(URL);
     }
 
     editarNota(nota: Nota) {
