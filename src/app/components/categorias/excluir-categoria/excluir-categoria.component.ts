@@ -37,7 +37,7 @@ export class ExcluirCategoriaComponent {
 
   excluirCategoria() {
     this.categoriaService.excluirCategoria(this.categoria).subscribe((categoria) => {
-      this.toastService.success(`Categoria ${categoria.titulo} excluída com sucesso`, 'Success');
+      this.toastService.success(`Categoria excluída com sucesso`, 'Success');
       this.router.navigate(['/categorias', 'listar']);
       });
   }
