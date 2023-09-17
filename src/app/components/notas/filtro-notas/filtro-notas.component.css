@@ -1,0 +1,5 @@
+.badge:hover {
+    background-color: #490ea7 !important;
+    color: #eeeeee;
+    cursor: pointer;
+}

@@ -30,6 +30,6 @@ export class ExcluirNotaComponent implements OnInit{
     this.notaService.excluirNota(this.nota).subscribe((nota) => {
       this.toastService.success(`Nota excluída com sucesso`, 'Success');
       this.router.navigate(['/notas', 'listar']);
-      });
+    });
   }
 }

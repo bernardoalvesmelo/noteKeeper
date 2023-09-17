@@ -23,7 +23,7 @@ export class ListarNotasComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.notaService.selecionarTodos().subscribe((notasLista) => {
+    this.notaService.selecionarTodosComCategoria().subscribe((notasLista) => {
       this.notas = notasLista;
     });
 
@@ -52,7 +52,7 @@ export class ListarNotasComponent implements OnInit{
   }
 
   selecionarTodasNotas() {
-    this.notaService.selecionarTodos().subscribe((notasLista) => {
+    this.notaService.selecionarTodosComCategoria().subscribe((notasLista) => {
       this.notas = notasLista;
     });
   }
