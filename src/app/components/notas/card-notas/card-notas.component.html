@@ -11,11 +11,11 @@
     <div class="d-flex gap-2 w-50 justify-content-center card-footer bg-transparent">
       <button *ngIf="!ehArquivada" (click)="emitirNota()"class="btn btn-outline-{{ nota.tema }}" aria-label="Arquivar"
         ngbTooltip="Arquivar" placement="bottom">
-        <i class="bi bi-download"></i>
+        <i class="bi bi-folder"></i>
       </button>
       <button *ngIf="ehArquivada" (click)="emitirNota()"class="btn btn-outline-{{ nota.tema }}" aria-label="Desarquivar"
         ngbTooltip="Desarquivar" placement="bottom">
-        <i class="bi bi-upload"></i>
+        <i class="bi bi-folder2-open"></i>
       </button>
       <button class="btn btn-outline-{{ nota.tema }}"  aria-label="Editar" ngbTooltip="Editar" placement="bottom" 
         routerLink="/notas/editar/{{ehArquivada ? 'arquivada' : 'nota'}}/{{ nota.id }}">

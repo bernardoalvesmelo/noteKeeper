@@ -57,7 +57,11 @@
       "titulo": "Nota arquivada",
       "conteudo": "Arquivar a nota",
       "tema": "warning",
-      "categoriaId": 1
+      "categoriaId": 1,
+      "categoria": {
+        "titulo": "Lazer",
+        "id": 1
+      }
     }
   ]
 }
