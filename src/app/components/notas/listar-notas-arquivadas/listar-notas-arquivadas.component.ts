@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Nota } from '../../../models/nota';
-import { NotaService } from '../../../services/nota.service';
-import { CategoriaService } from '../../../services/categoria.service';
-import { Categoria } from 'src/app/models/categoria';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Categoria } from 'src/app/models/categoria';
+import { Nota } from 'src/app/models/nota';
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { NotaArquivadaService } from 'src/app/services/nota-arquivada.service';
 
 
 @Component({
-  selector: 'app-listar-notas',
-  templateUrl: './listar-notas.component.html',
-  styleUrls: ['./listar-notas.component.css']
+  selector: 'app-listar-notas-arquivadas',
+  templateUrl: './listar-notas-arquivadas.component.html',
+  styleUrls: ['./listar-notas-arquivadas.component.css']
 })
-
-export class ListarNotasComponent implements OnInit {
+export class ListarNotasArquivadasComponent {
   notas: Nota[] = [];
 
   categorias: Categoria[] = [];
 
   constructor(
-    private notaService: NotaService,
+    private notaService: NotaArquivadaService,
     private categoriaService: CategoriaService,
     private toastService: ToastrService) {
 
@@ -59,11 +58,11 @@ export class ListarNotasComponent implements OnInit {
     });
   }
 
-  arquivarNota(nota: Nota) {
-    this.notaService.arquivarNota(nota).subscribe(() => {
+  desarquivarNota(nota: Nota) {
+    this.notaService.desarquivarNota(nota).subscribe(() => {
       this.notaService.excluirNota(nota).subscribe(() => {
         this.selecionarTodasNotas();
-        this.toastService.success(`Nota arquivada com sucesso`, 'Success');
+        this.toastService.success(`Nota desarquivada com sucesso`, 'Success');
       })
     });
   }

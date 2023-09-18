@@ -8,6 +8,7 @@ import { ListarCategoriasComponent } from './components/categorias/listar-catego
 import { CriarCategoriaComponent } from './components/categorias/criar-categoria/criar-categoria.component';
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
 import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component';
+import { ListarNotasArquivadasComponent } from './components/notas/listar-notas-arquivadas/listar-notas-arquivadas.component';
 
 const routes: Routes = [
   {
@@ -20,15 +21,19 @@ const routes: Routes = [
     component: ListarNotasComponent,
   },
   {
+    path: 'notas/listar-arquivadas', 
+    component: ListarNotasArquivadasComponent,
+  },
+  {
     path: 'notas/criar',
     component: CriarNotaComponent,
   },
   {
-    path: 'notas/editar/:id',
+    path: 'notas/editar/:tipo/:id',
     component: EditarNotaComponent,
   },
   {
-    path: 'notas/excluir/:id',
+    path: 'notas/excluir/:tipo/:id',
     component: ExcluirNotaComponent,
   },
   {

@@ -1,5 +1,5 @@
 <section class="row gap-3">
-    <h1>Minhas Notas</h1>
+    <h1>Minhas Notas Arquivadas</h1>
   
     <div>
       <button routerLink="/notas/criar" class="btn btn-lg btn-outline-primary mb-4 rounded-4">
@@ -10,7 +10,7 @@
     <app-filtro-notas [categorias]="categorias" (onFiltroSelecionado)="filtrarNotasPorCategoria($event)"></app-filtro-notas>
     <div class="row g-3">
       <div *ngFor="let nota of notas" class="col-sm col-md-6 col-lg-3">
-        <app-card-nota (onNotaSelecionada)="arquivarNota($event)" [nota]="nota" [ehArquivada]="false"></app-card-nota>
+        <app-card-nota (onNotaSelecionada)="desarquivarNota($event)" [nota]="nota" [ehArquivada]="true"></app-card-nota>
       </div>
     </div>
   </section>

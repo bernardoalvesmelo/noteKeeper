@@ -36,6 +36,7 @@ export class CriarNotaComponent {
     ngOnInit(): void {
         this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
             this.categorias = categoriasLista;
+            this.verificarCategorias();
         });
 
         this.nota.categoria = this.categorias[0] ?? null;

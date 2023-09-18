@@ -15,6 +15,10 @@
     {
       "titulo": "Testes HTTP na Aula",
       "id": 4
+    },
+    {
+      "id": 5,
+      "titulo": "Padrão"
     }
   ],
   "notas": [
@@ -45,6 +49,15 @@
       "tema": "danger",
       "categoriaId": 3,
       "id": 4
+    }
+  ],
+  "notas_arquivadas": [
+    {
+      "id": 7,
+      "titulo": "Nota arquivada",
+      "conteudo": "Arquivar a nota",
+      "tema": "warning",
+      "categoriaId": 1
     }
   ]
 }

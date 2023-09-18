@@ -20,6 +20,8 @@ import { CriarCategoriaComponent } from './components/categorias/criar-categoria
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
 import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component';
 import { FiltroNotasComponent } from './components/notas/filtro-notas/filtro-notas.component';
+import { ListarNotasArquivadasComponent } from './components/notas/listar-notas-arquivadas/listar-notas-arquivadas.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { FiltroNotasComponent } from './components/notas/filtro-notas/filtro-not
     EditarCategoriaComponent,
     ExcluirCategoriaComponent,
     FiltroNotasComponent,
+    ListarNotasArquivadasComponent,
   ],
   imports: [
     BrowserModule,

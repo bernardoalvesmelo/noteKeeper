@@ -7,7 +7,7 @@ import { Categoria } from 'src/app/models/categoria';
   styleUrls: ['./filtro-notas.component.css']
 })
 export class FiltroNotasComponent {
-  @Input({required : true}) categorias: Categoria[] = [];
+  @Input({ required: true }) categorias: Categoria[] = [];
 
   @Output() onFiltroSelecionado: EventEmitter<Categoria | null>;
 

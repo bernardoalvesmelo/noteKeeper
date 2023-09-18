@@ -7,9 +7,9 @@ import { Categoria } from "../models/categoria";
 @Injectable({
     providedIn: 'root',
 })
-export class NotaService  {
+export class NotaArquivadaService  {
 
-  private API_URL = 'http://localhost:3000/notas';
+  private API_URL = 'http://localhost:3000/notas_arquivadas';
 
   constructor(private http: HttpClient) {}
  
@@ -23,7 +23,7 @@ export class NotaService  {
     }
 
     public selecionarTodosComCategoria() {
-      const URL = 'http://localhost:3000/notas?_expand=categoria'
+      const URL = 'http://localhost:3000/notas_arquivadas?_expand=categoria'
       return this.http.get<Nota[]>(URL);
     }
 
@@ -40,12 +40,13 @@ export class NotaService  {
     }
 
     public selecionarTodasPorCategoria(categoria: Categoria) {
-      const URL = 'http://localhost:3000/notas?_expand=categoria&&categoriaId=' + categoria.id ?? 0;
+      const URL = 'http://localhost:3000/notas_arquivadas?_expand=categoria&&categoriaId=' + categoria.id ?? 0;
       return this.http.get<Nota[]>(URL);
     }
 
-    public arquivarNota(nota: Nota) {
-      const URL = 'http://localhost:3000/notas_arquivadas';
+    public desarquivarNota(nota: Nota) {
+      const URL = 'http://localhost:3000/notas';
       return this.http.post<Nota>(URL, nota);
     }
+
 }
