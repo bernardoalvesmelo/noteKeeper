@@ -32,31 +32,23 @@ export class CriarNotaComponent {
         }
     }
 
-
     ngOnInit(): void {
         this.categoriaService.selecionarTodos().subscribe((categoriasLista) => {
             this.categorias = categoriasLista;
             this.verificarCategorias();
+            this.nota.categoria = this.categorias[0] ?? null;
+            this.nota.categoriaId = this.nota.categoria.id;
         });
-
-        this.nota.categoria = this.categorias[0] ?? null;
-        this.nota.categoriaId = this.nota.categoria.id;
     }
 
-    criarNota() {
-        this.notaService.criarNota(this.nota).subscribe((nota) => {
+    criarNota(nota: Nota) {
+        this.notaService.criarNota(nota).subscribe((n) => {
             this.toastService
-                .success(`Nota ${nota.titulo} criada com sucesso`, 'Success');
+                .success(`Nota ${n.titulo} criada com sucesso`, 'Success');
 
             this.router.navigate(['/notas', 'listar']);
         });
     }
-
-    definirCategoria(categoria: Categoria) {
-        this.nota.categoria = categoria;
-        this.nota.categoriaId = categoria.id;
-    }
-
 
     verificarCategorias() {
         if (this.categorias.length == 0) {

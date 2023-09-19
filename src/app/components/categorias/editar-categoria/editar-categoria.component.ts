@@ -25,9 +25,9 @@ export class EditarCategoriaComponent {
      });
   }
 
-  editarCategoria() {
-    this.categoriaService.editarCategoria(this.categoria).subscribe((categoria) => {
-    this.toastService.success(`Categoria ${categoria.titulo} editada com sucesso`, 'Success');
+  editarCategoria(categoria: Categoria) {
+    this.categoriaService.editarCategoria(categoria).subscribe((c) => {
+    this.toastService.success(`Categoria ${c.titulo} editada com sucesso`, 'Success');
     this.router.navigate(['/categorias', 'listar']);
     });
   }

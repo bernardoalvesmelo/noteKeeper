@@ -13,7 +13,7 @@ import { ListarNotasArquivadasComponent } from './components/notas/listar-notas-
 const routes: Routes = [
   {
     path: '', 
-    redirectTo: 'notas/listar',
+    redirectTo: 'categorias/listar',
     pathMatch: 'full',
   },
   {

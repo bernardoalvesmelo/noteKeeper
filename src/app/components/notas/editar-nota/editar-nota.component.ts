@@ -54,25 +54,22 @@ export class EditarNotaComponent implements OnInit {
     })
   }
 
-  editarNota() {
+  editarNota(nota: Nota) {
     if (this.tipo == 'nota') {
 
-      this.notaService.editarNota(this.nota).subscribe((nota) => {
-        this.toastService.success(`Nota ${nota.titulo} editada com sucesso`, 'Success');
+      this.notaService.editarNota(nota).subscribe((n) => {
+        this.toastService.success(`Nota ${n.titulo} editada com sucesso`, 'Success');
         this.router.navigate(['/notas', 'listar']);
       });
     }
 
     else {
-      this.notaArquivadaService.editarNota(this.nota).subscribe((nota) => {
-        this.toastService.success(`Nota editada com sucesso`, 'Success');
+      this.notaArquivadaService.editarNota(nota).subscribe((n) => {
+        this.toastService.success(`Nota ${n.titulo} editada com sucesso`, 'Success');
         this.router.navigate(['/notas', 'listar-arquivadas']);
       });
     }
   }
 
-  definirCategoria(categoria: Categoria) {
-    this.nota.categoria = categoria;
-    this.nota.categoriaId = categoria.id;
-  }
+
 }

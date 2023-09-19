@@ -25,10 +25,10 @@ export class CriarCategoriaComponent {
           }
       }
 
-  criarCategoria() {
-      this.categoriaService.criarCategoria(this.categoria).subscribe((categoria) => {
+  criarCategoria(categoria: Categoria) {
+      this.categoriaService.criarCategoria(categoria).subscribe((c) => {
           this.toastService
-          .success(`Categoria ${categoria.titulo} criada com sucesso`, 'Success');
+          .success(`Categoria ${c.titulo} criada com sucesso`, 'Success');
           
           this.router.navigate(['/categorias', 'listar']);
       });
