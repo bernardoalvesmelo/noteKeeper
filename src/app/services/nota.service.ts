@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Nota } from "../models/nota";
 import { Categoria } from "../models/categoria";
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Categoria } from "../models/categoria";
 })
 export class NotaService  {
 
-  private API_URL = 'http://localhost:3000/notas';
+  private API_URL = environment.API_URL + '/api/notas';
 
   constructor(private http: HttpClient) {}
  
@@ -23,7 +24,7 @@ export class NotaService  {
     }
 
     public selecionarTodosComCategoria() {
-      const URL = 'http://localhost:3000/notas?_expand=categoria'
+      const URL = environment.API_URL + '/api/notas?_expand=categoria'
       return this.http.get<Nota[]>(URL);
     }
 
@@ -40,12 +41,12 @@ export class NotaService  {
     }
 
     public selecionarTodasPorCategoria(categoria: Categoria) {
-      const URL = 'http://localhost:3000/notas?_expand=categoria&&categoriaId=' + categoria.id ?? 0;
+      const URL = environment.API_URL + '/api/notas?_expand=categoria&&categoriaId=' + categoria.id ?? 0;
       return this.http.get<Nota[]>(URL);
     }
 
     public arquivarNota(nota: Nota) {
-      const URL = 'http://localhost:3000/notas_arquivadas';
+      const URL = environment.API_URL + '/api/notas_arquivadas';
       return this.http.post<Nota>(URL, nota);
     }
 }
