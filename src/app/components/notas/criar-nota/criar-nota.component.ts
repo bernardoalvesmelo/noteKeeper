@@ -28,7 +28,7 @@ export class CriarNotaComponent {
             titulo: 'Padrão',
             conteudo: 'Conteúdo Padrão',
             tema: 'dark',
-            categoriaId: 1,
+            categoriaId: 0,
         }
     }
 

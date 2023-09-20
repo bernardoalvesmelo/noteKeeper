@@ -16,7 +16,10 @@ export class EditarCategoriaComponent {
     private categoriaService: CategoriaService,
     private router: Router,
     private toastService: ToastrService) {
-    this.categoria = {id: 0, titulo: '',}
+    this.categoria = {
+      id: 0, 
+      titulo: '',
+    }
   }
 
   ngOnInit(): void {

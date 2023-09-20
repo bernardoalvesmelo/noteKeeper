@@ -20,7 +20,13 @@ export class ExcluirNotaComponent implements OnInit {
     private notaArquivadaService: NotaArquivadaService,
     private router: Router,
     private toastService: ToastrService) {
-    this.nota = { id: 0, titulo: '', conteudo: '', tema: 'dark' }
+    this.nota = { 
+      id: 0, 
+      titulo: '', 
+      conteudo: '', 
+      tema: 'dark',
+      categoriaId: 0
+    }
   }
 
   ngOnInit(): void {

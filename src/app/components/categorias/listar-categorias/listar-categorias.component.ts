@@ -9,9 +9,7 @@ import { Categoria } from 'src/app/models/categoria';
   styleUrls: ['./listar-categorias.component.css']
 })
 export class ListarCategoriasComponent implements OnInit{
-  categorias: Categoria[] = [
-
-  ];
+  categorias: Categoria[] = [];
 
   constructor(private categoriaService: CategoriaService) {}
 

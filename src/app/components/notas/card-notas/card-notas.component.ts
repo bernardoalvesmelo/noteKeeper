@@ -11,15 +11,17 @@ export class CardNotasComponent {
 
   @Input() ehArquivada: boolean = false;
 
-  @Input() nota: Nota = {
-    id: 0,
-    titulo: 'Tarefa Padrão',
-    conteudo: 'Padrão de tarefa',
-    tema: 'dark',
-  };
+  @Input() nota: Nota;
 
   constructor() {
     this.onNotaSelecionada = new EventEmitter();
+    this.nota = {
+      id: 0,
+      titulo: 'Tarefa Padrão',
+      conteudo: 'Padrão de tarefa',
+      tema: 'dark',
+      categoriaId: 0
+    };
   }
 
   emitirNota() {

@@ -19,7 +19,7 @@ export class FormularioNotaComponent {
       titulo: 'Padrão',
       conteudo: 'Conteúdo Padrão',
       tema: 'dark',
-      categoriaId: 1,
+      categoriaId: 0,
     }
   }
 
