@@ -4,15 +4,21 @@
       NoteKeeper
     </a>
     <div class="d-flex gap-3">
-      <button routerLink="notas/listar" class="btn btn-sm btn-outline-primary rounded-2">
+      <a routerLink="/notas/listar" class="nav-link">
+      <button routerLinkActive="btn-primary text-light" class="btn btn-sm btn-outline-primary rounded-2">
         Notas
       </button>
-      <button routerLink="notas/listar-arquivadas" class="btn btn-sm btn-outline-primary rounded-2">
+      </a>
+      <a routerLink="/notas/listar-arquivadas" class="nav-link">
+      <button routerLinkActive="btn-primary text-light" class="btn btn-sm btn-outline-primary rounded-2">
         Arquivadas
       </button>
-      <button routerLink="categorias/listar" class="btn btn-sd btn-outline-primary rounded-2">
+      </a>
+      <a routerLink="/categorias/listar" class="nav-link">
+      <button routerLinkActive="btn-primary text-light" class="btn btn-sm btn-outline-primary rounded-2">
         Categorias
       </button>
+      </a>
     </div>
   </div>
 </nav>
